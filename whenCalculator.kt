@@ -1,11 +1,13 @@
 fun main(args: Array<String>) {
     print("Enter the first Number: ")
-    val numOne = readLine()!!.toDouble()
+    val numOne = readLine()?.toDoubleOrNull()
     print("Enter the second Number: ")
-    val numTwo = readLine()!!.toDouble()
+    val numTwo = readLine()?.toDoubleOrNull()
     print("Enter the operator(+, -, *, /, %): ")
     val oper = readLine()
     when{
+        (numOne == null || numTwo == null) -> println("Please enter valid number.")
+//        (oper == null) -> print("Please enter an oertator")
         oper == "+" -> print("Addition is: ${numOne+numTwo}")
         oper== "-" -> print("Subtraction is: ${numOne-numTwo}")
         oper == "*" -> print("Multiplication is: ${numOne*numTwo}")
@@ -23,6 +25,7 @@ fun main(args: Array<String>) {
                 print("Undefined. Cannot Devide by Zero.")
             }
         }
+        else -> print("Please enter an oertator.")
 
     }
 }
