@@ -1,0 +1,50 @@
+class BankAccount(private var accountNumber: String,private var balance: Double){
+
+//Encapsulation
+    fun getBalance(): Double{
+        return balance
+    }
+
+
+//Abstraction
+    fun deposit(amount: Double){
+        if (amount>0){
+            balance += amount
+            println("Successfully Deposited $amount")
+        }
+        else{
+            println("Invalid Deposit Amount.")
+        }
+    }
+
+    fun withdrawal(amount: Double){
+        if (amount<=balance){
+            balance -= amount
+            println("Successfully Withdrawn $amount")
+        }
+        else{
+            println("Invalid Deposit Amount.")
+        }
+    }
+}
+fun main(args: Array<String>) {
+ //Object1
+    val userOne = BankAccount("1234",1000.0)
+    println("Initial Balance: ${userOne.getBalance()}")
+
+    userOne.deposit(500.0)
+    println("Balance: ${userOne.getBalance()}")
+
+    userOne.withdrawal(300.0)
+    println("Balance: ${userOne.getBalance()}")
+
+
+//Object2
+    val userTwo = BankAccount("1242",1200.0)
+    println("Initial Balance: ${userTwo.getBalance()}")
+
+    userTwo.deposit(200.0)
+    println("Balance: ${userTwo.getBalance()}")
+    userOne.withdrawal(700.0)
+    println("Balance: ${userOne.getBalance()}")
+}
